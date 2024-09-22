@@ -107,7 +107,7 @@ public class RegistrationPage {
 
     public RegistrationPage setState(String value) {
         selectState.$(byText("Select State")).click();
-        selectState.$(byText(value)).click();
+        selectState.$(byText(value)).scrollTo().click();
 
         return this;
     }
@@ -115,14 +115,14 @@ public class RegistrationPage {
 
     public RegistrationPage setCity(String value) {
         selectCity.$(byText("Select City")).click();
-        selectCity.$(byText(value)).click();
+        selectCity.$(byText(value)).scrollTo().click();
 
         return this;
     }
 
 
     public RegistrationPage submit() {
-        submit.click();
+        submit.scrollTo().click();
 
         return this;
     }
