@@ -45,6 +45,11 @@ test {
     }
 }
 
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+}
+
 task demoqa_test(type: Test) {
     useJUnitPlatform {
         includeTags("automation-practice-form")

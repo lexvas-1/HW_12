@@ -16,12 +16,12 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = System.getProperty("base_url");
+        Configuration.browserSize = System.getProperty("size", "1920*1080");
         Configuration.pageLoadStrategy = "eager";
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "100.0");
-        Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = System.getProperty("remote");
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 30000;
         DesiredCapabilities capabilities = new DesiredCapabilities();
