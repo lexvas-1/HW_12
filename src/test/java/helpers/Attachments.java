@@ -45,7 +45,7 @@ public class Attachments {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = remote "/video/" + sessionId() + ".mp4";
+        String videoUrl = remote + "/video/" + sessionId() + ".mp4";
         try {
             return new URL(videoUrl);
         } catch (MalformedURLException e) {
