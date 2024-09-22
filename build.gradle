@@ -50,9 +50,18 @@ tasks.withType(Test) {
     systemProperties(System.getProperties())
 }
 
-task demoqa_test(type: Test) {
+task all_demoqa_test(type: Test) {
     useJUnitPlatform {
         includeTags("automation-practice-form")
     }
-
+}
+task full_fields_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("FullFields")
+    }
+}
+task required_fields_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("RequiredFields")
+    }
 }
