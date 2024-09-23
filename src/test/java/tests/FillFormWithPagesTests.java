@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,12 @@ class FillFormWithPagesTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
+    @BeforeEach
+    void beforeEach() {
+        registrationPage.openPage("/automation-practice-form");
+        registrationPage.removeBan();
+        registrationPage.checkPage("Student Registration Form");
+    }
 
     @Test
     @Tag("FullFields")
@@ -18,11 +25,7 @@ class FillFormWithPagesTests extends TestBase {
     @DisplayName("Заполнение полной формы")
     void successfulFillFormTest() {
 
-        step("Открыть страницу", () -> {
-                    registrationPage.openPage()
-                            .removeBan();
-                }
-        );
+
         step("Заполнить поля", () -> {
             registrationPage.setFirstName("Alexander")
                     .setLastName("Volodin")
@@ -61,10 +64,6 @@ class FillFormWithPagesTests extends TestBase {
     @DisplayName("Проверка обязательного выбора пола")
     void genderValidateFillFormTest() {
 
-        step("Открыть страницу", () -> {
-        registrationPage.openPage()
-                .removeBan();
-        });
         step("Ввести имя и фамилию", () -> {
             registrationPage.setFirstName("Alexander")
                     .setLastName("Volodin");
@@ -82,12 +81,8 @@ class FillFormWithPagesTests extends TestBase {
     @Tag("RequiredFields")
     @Tag("automation-practice-form")
     @DisplayName("Заполнение минимального обязательного количества полей")
-    void minimumFormSuccessfullFillFormTest() {
+    void minSuccessfulFillFormTest() {
 
-        step("Открыть страницу", () -> {
-        registrationPage.openPage()
-                .removeBan();
-        });
 
         step("Ввести имя, фамилию и пол", () -> {
             registrationPage.setFirstName("Alexander")
@@ -116,10 +111,6 @@ class FillFormWithPagesTests extends TestBase {
     @DisplayName("Валидация формата номера телефона")
     void validatePhoneNumberTest() {
 
-        step("Открыть страницу", () -> {
-        registrationPage.openPage()
-                .removeBan();
-        });
 
         step("Ввести имя, фамилию и пол", () -> {
             registrationPage.setFirstName("Alexander")

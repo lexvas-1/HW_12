@@ -22,7 +22,6 @@ public class TestBase {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "100.0");
         Configuration.remote = System.getProperty("remote");
-        Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 30000;
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(

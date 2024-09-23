@@ -28,18 +28,21 @@ public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultComponent resultComponent = new ResultComponent();
 
-    public RegistrationPage openPage() {
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+    public RegistrationPage openPage(String value) {
+        open(value);
 
         return this;
     }
 
-    public RegistrationPage removeBan() {
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+    public RegistrationPage checkPage(String value) {
+        $(".practice-form-wrapper").shouldHave(text(value));
 
         return this;
+    }
+
+    public void removeBan() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
     }
 
     public RegistrationPage setFirstName(String value) {
